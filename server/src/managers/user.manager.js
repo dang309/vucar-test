@@ -26,7 +26,9 @@ class UserManager extends BaseManager {
   }
 
   async findOne(id) {
-    const data = await this.model.findByPk(id, { attributes: ["id", "username", "type", "createdAt", "updatedAt"] });
+    const data = await this.model.findByPk(id, {
+      attributes: ["id", "username", "type", "createdAt", "updatedAt"],
+    });
     return {
       data,
     };
