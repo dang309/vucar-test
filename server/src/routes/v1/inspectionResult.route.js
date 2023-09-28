@@ -1,9 +1,9 @@
-import { FaceController } from "../../controllers/index.js";
+import { InspectionResultController } from "../../controllers/index.js";
 import auth from "../../middlewares/auth.middleware.js";
 import validate from "../../middlewares/validate.middleware.js";
-import FACE_VALIDATION from "../../validations/face.validation.js";
+import { INSPECTION_RESULT_VALIDATION } from "../../validations/index.js";
 
-const controller = new FaceController();
+const controller = new InspectionResultController();
 
 export default [
   {
@@ -13,22 +13,10 @@ export default [
     middlewares: [auth],
   },
   {
-    path: "/get-asset",
-    method: "get",
-    handler: controller.facesOfAssets,
-    middlewares: [auth],
-  },
-  {
-    path: "/count",
-    method: "get",
-    handler: controller.count,
-    middlewares: [auth],
-  },
-  {
     path: "/",
     method: "post",
     handler: controller.create,
-    middlewares: [auth],
+    middlewares: [auth, validate(INSPECTION_RESULT_VALIDATION.create)],
   },
   {
     path: "/:id",
@@ -40,14 +28,14 @@ export default [
     path: "/:id",
     method: "patch",
     handler: controller.update,
-    middlewares: [auth, validate(FACE_VALIDATION.update)],
+    middlewares: [auth, validate(INSPECTION_RESULT_VALIDATION.update)],
   },
 
   {
     path: "/:id",
     method: "delete",
     handler: controller.delete,
-    middlewares: [auth, validate(FACE_VALIDATION.delete)],
+    middlewares: [auth, validate(INSPECTION_RESULT_VALIDATION.delete)],
   },
 
   {

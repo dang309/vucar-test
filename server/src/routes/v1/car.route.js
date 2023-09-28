@@ -1,9 +1,7 @@
-import { ModelController } from "../../controllers/index.js";
+import { CarController } from "../../controllers/index.js";
 import auth from "../../middlewares/auth.middleware.js";
-import validate from "../../middlewares/validate.middleware.js";
-import MODEL_VALIDATION from "../../validations/model.validation.js";
 
-const controller = new ModelController();
+const controller = new CarController();
 
 export default [
   {
@@ -22,7 +20,7 @@ export default [
     path: "/",
     method: "post",
     handler: controller.create,
-    middlewares: [auth, validate(MODEL_VALIDATION.create)],
+    middlewares: [auth],
   },
   {
     path: "/:id",
@@ -34,13 +32,13 @@ export default [
     path: "/:id",
     method: "patch",
     handler: controller.update,
-    middlewares: [auth, validate(MODEL_VALIDATION.update)],
+    middlewares: [auth],
   },
 
   {
     path: "/:id",
     method: "delete",
     handler: controller.delete,
-    middlewares: [auth, validate(MODEL_VALIDATION.delete)],
+    middlewares: [auth],
   },
 ];

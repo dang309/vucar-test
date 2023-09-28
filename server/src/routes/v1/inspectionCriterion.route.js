@@ -1,9 +1,7 @@
-import { TaskController } from "../../controllers/index.js";
+import { InspectionCriterionController } from "../../controllers/index.js";
 import auth from "../../middlewares/auth.middleware.js";
-import validate from "../../middlewares/validate.middleware.js";
-import TASK_VALIDATION from "../../validations/task.validation.js";
 
-const controller = new TaskController();
+const controller = new InspectionCriterionController();
 
 export default [
   {
@@ -13,16 +11,10 @@ export default [
     middlewares: [auth],
   },
   {
-    path: "/count",
-    method: "get",
-    handler: controller.count,
-    middlewares: [auth],
-  },
-  {
     path: "/",
     method: "post",
     handler: controller.create,
-    middlewares: [auth, validate(TASK_VALIDATION.create)],
+    middlewares: [auth],
   },
   {
     path: "/:id",
@@ -34,13 +26,13 @@ export default [
     path: "/:id",
     method: "patch",
     handler: controller.update,
-    middlewares: [auth, validate(TASK_VALIDATION.update)],
+    middlewares: [auth],
   },
 
   {
     path: "/:id",
     method: "delete",
     handler: controller.delete,
-    middlewares: [auth, validate(TASK_VALIDATION.delete)],
+    middlewares: [auth],
   },
 ];

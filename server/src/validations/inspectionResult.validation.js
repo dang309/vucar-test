@@ -1,11 +1,11 @@
 import Joi from "joi";
 
-const PERSON_VALIDATION = {
+const SYSTEM_VALIDATION = {
   create: {
     body: Joi.object()
       .keys({
-        systemId: Joi.string().required(),
-        name: Joi.string().required(),
+        isGood: Joi.bool().required(),
+        note: Joi.string(),
       })
       .unknown(true),
   },
@@ -14,8 +14,8 @@ const PERSON_VALIDATION = {
       id: Joi.required(),
     }),
     body: Joi.object().keys({
-      systemId: Joi.string(),
-      name: Joi.string(),
+      isGood: Joi.bool().default(false),
+      note: Joi.string(),
     }),
   },
   delete: {
@@ -25,4 +25,4 @@ const PERSON_VALIDATION = {
   },
 };
 
-export default PERSON_VALIDATION;
+export default SYSTEM_VALIDATION;
