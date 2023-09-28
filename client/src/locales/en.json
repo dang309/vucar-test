@@ -1,0 +1,225 @@
+{
+  "BREADCRUMB": {
+    "ASSET": "Assets",
+    "BACKUP": "Backup",
+    "CREATE": "Create",
+    "EDIT": "Edit",
+    "FACE": "Faces",
+    "MODEL": "Models",
+    "PERSON": "People",
+    "SETTING": "Settings",
+    "SYSTEM": "System",
+    "TASK": "Tasks",
+    "USER": "Users"
+  },
+  "BUTTON": {
+    "ADD": "Add",
+    "ADD_FACE": "Add Face",
+    "BACKUP": "Backup",
+    "CANCEL": "Cancel",
+    "CHANGE": "Change",
+    "CHANGE_PASSWORD": "Change Password",
+    "CLOSE": "Close",
+    "DELETE": "Delete",
+    "DOWNLOAD": "Download",
+    "EDIT": "Edit",
+    "EXTRACT": "Extract",
+    "EXTRACT_FACE": "Extract Face",
+    "LOG_OUT": "Log Out",
+    "PREVIEW": "Preview",
+    "PROFILE": "Profile",
+    "REFRESH": "Refresh",
+    "RESET": "Reset",
+    "RESTART": "Restart",
+    "RETRAIN": "Retrain",
+    "ROTATE_LEFT": "Rotate left",
+    "ROTATE_RIGHT": "Rotate right",
+    "SAVE": "Save",
+    "SHOW_FACE": "Show Faces",
+    "STOP": "Stop",
+    "VERIFY": "Verify",
+    "VERIFY_FACE": "Verify Face",
+    "UPDATE": "Update",
+    "UPLOAD": "Upload",
+    "ZOOM_IN": "Zoom in",
+    "ZOOM_OUT": "Zoom out"
+  },
+  "DASHBOARD": {
+    "ASSET": "Assets",
+    "FACE": "Faces",
+    "MODEL": "Models",
+    "PERSON": "People",
+    "TASK": "Tasks"
+  },
+  "DIALOG": {
+    "CONTENT": {
+      "DELETE": "Do you want to delete this record?",
+      "DELETE_MANY": "Do you want to delete these records?"
+    },
+    "TITLE": {
+      "CHANGE_PASSWORD": "Change Password",
+      "DELETE": "Delete",
+      "EXTRACT_FACE": "Extract Face",
+      "VERIFY_FACE": "Verify Face",
+      "PREVIEW": "Preview",
+      "PROFILE": "Profile",
+      "UPLOAD_ASSET": "Upload Asset"
+    }
+  },
+  "HEADER": {},
+  "HEADING": {
+    "ASSET_FORM": "Asset Form",
+    "ASSET_MANAGEMENT": "Asset Management",
+    "BACKUP_FORM": "Backup Form",
+    "BACKUP_MANAGEMENT": "Backup Management",
+    "DASHBOARD": "Dashboard",
+    "FACE_FORM": "Face Form",
+    "FACE_MANAGEMENT": "Face Management",
+    "MODEL_FORM": "Model Form",
+    "MODEL_MANAGEMENT": "Model Management",
+    "PERSON_FORM": "Person Form",
+    "PERSON_MANAGEMENT": "Person Management",
+    "SERVER_STATUS": "Server Status",
+    "SETTING_FORM": "Setting Form",
+    "SETTING_MANAGEMENT": "Setting Management",
+    "SYSTEM_FORM": "System Form",
+    "SYSTEM_MANAGEMENT": "System Management",
+    "TASK_FORM": "Task Form",
+    "TASK_MANAGEMENT": "Task Management",
+    "USER_FORM": "User Form",
+    "USER_MANAGEMENT": "User Management"
+  },
+  "LABEL": {
+    "ALIAS": "Alias",
+    "ASSET_ID": "Asset ID",
+    "ACTIVATED": "Activated",
+    "CODE": "Code",
+    "DATA_TYPE": "Data Type",
+    "DESC": "Desciption",
+    "END_DATE": "End Date",
+    "FACE_DESCRIPTOR": "Face Descriptor",
+    "FACE_DETECTOR": "Face Detector",
+    "NAME": "Name",
+    "NEW_PASSWORD": "New Password",
+    "OLD_PASSWORD": "Old Password",
+    "PERSON": "Person",
+    "RE_PASSWORD": "Retype Password",
+    "SECURITY_KEY": "Security Key",
+    "START_DATE": "Start Date",
+    "SYSTEM": "System",
+    "STATUS": "Status",
+    "SEARCH": "Search",
+    "TITLE": "Title",
+    "TYPE": "Type",
+    "URL": "URL",
+    "USERNAME": "Username",
+    "VALUE": "Value"
+  },
+  "LINK": {},
+  "LOCALE": {
+    "EN": "English",
+    "KO": "Korean"
+  },
+  "NOTI": {
+    "BACKUP_DONE": "Backup Done!",
+    "CHOOSE_FACE_DESCRIPTOR": "Please choose face descriptor!",
+    "CHOOSE_FACE_DETECTOR": "Please choose face detector!",
+    "CHOOSE_IMAGE": "Please choose image!",
+    "CHOOSE_SYSTEM": "Please choose system!",
+    "CHOOSE_URL": "Please choose url!",
+    "EXTRACT_DONE": "Extract Done!",
+    "EXTRACT_FAIL": "Extract Failed!",
+    "VERIFY_DONE": "Verify Done!",
+    "FAILED": "Failed!",
+    "MISMATCH_PASSWORD": "The password is mismatched!",
+    "SUCCESS": "Successfully!"
+  },
+  "OPTION": {
+    "ADMIN": "ADMIN",
+    "ANONYMOUS": "ANONYMOUS",
+    "NORMAL": "NORMAL",
+    "PRIVATE": "Private",
+    "PUBLIC": "Public",
+    "SUPER_ADMIN": "SUPER ADMIN",
+    "TRUE": "TRUE",
+    "FALSE": "FALSE"
+  },
+  "PLACEHOLDER": {
+    "SEARCH": "Search..."
+  },
+  "RADIO": {
+    "BY_URL": "By Url",
+    "FROM_COMPUTER": "From Computer"
+  },
+  "SIDEBAR": {
+    "GROUP": {
+      "GENERAL": "General",
+      "MANAGEMENT": "Management"
+    },
+    "NAV": {
+      "ASSET": "Asset",
+      "BACKUP": "Backup",
+      "DASHBOARD": "Dashboard",
+      "FACE": "Face",
+      "MODEL": "Model",
+      "PERSON": "Person",
+      "SERVER_STATUS": "Server Status",
+      "SETTING": "Setting",
+      "SFACE_DATA": "SFace Data",
+      "SYSTEM": "System",
+      "TASK": "Task",
+      "USER": "User",
+      "WEB_MASTER": "Web Master"
+    }
+  },
+  "STATUS": {
+    "DONE": "DONE",
+    "ERROR": "ERROR",
+    "IDLE": "IDLE",
+    "PROGRESS": "PROGRESS",
+    "SUCCESS": "SUCCESS",
+    "WAITING": "WAITING"
+  },
+  "TABLE": {
+    "COLUMN": {
+      "ACTIONS": "Actions",
+      "ACTIVATED": "Activated",
+      "ALIAS": "Alias",
+      "ASSET": "Asset",
+      "CODE": "Code",
+      "CREATED_DATE": "Created Date",
+      "DATA_TYPE": "Data Type",
+      "DEFAULT": "Default",
+      "DESC": "Desciption",
+      "DIMENSION": "Dimension",
+      "JOB_CODE": "Job Code",
+      "JOB_TYPE": "Job Type",
+      "LAST_UPDATE": "Last Update",
+      "NAME": "Name",
+      "ORIGIN": "Origin",
+      "ORIGINAL_NAME": "Original Name",
+      "PERSON": "Person",
+      "POSITION": "Position",
+      "PROGRESS": "Progress",
+      "SECURITY": "Security",
+      "SECURITY_KEY": "Security Key",
+      "SIZE": "Size",
+      "STATUS": "Status",
+      "SYSTEM": "System",
+      "TASK_CODE": "Task Code",
+      "TASK_TYPE": "Task Type",
+      "THUMB": "Thumb",
+      "TITLE": "Title",
+      "TYPE": "Type",
+      "USERNAME": "Username",
+      "VALUE": "Value"
+    }
+  },
+  "TOOLTIP": {
+    "PRIVATE": "Private",
+    "PUBLIC": "Public"
+  },
+  "OTHER": {
+    "DROP_OR_SELECT_FILE": "Drop or Select file"
+  }
+}

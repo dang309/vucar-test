@@ -1,0 +1,22 @@
+version: "3"
+services:
+  sface-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DB_HOST=43.200.191.225
+      - DB_PORT=3306
+      - DB_USER=geminisoft
+      - DB_PASSWORD=Geminisoft@090684
+      - DB_NAME=sface_engine
+      - DB_DIALECT=mysql
+      - API_ROOT_URL=https://vdc-workstation.wetop.me
+      - WEB_ROOT_URL=https://demo.wetop.me/sface
+      - JWT_SECRET=s3lab-secret
+      - JWT_EXPIRATION_HOURS=128
+    ports:
+      - "3000:8080"
+    restart: unless-stopped
