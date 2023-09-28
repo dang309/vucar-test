@@ -17,10 +17,20 @@ export default (sequelize) => {
     static async paginate(query, { page, pageSize }) {
       const { models } = sequelize;
 
-      const attributes = ["id", "username", "type", "isDefault", "createdAt", "updatedAt"];
+      const attributes = [
+        "id",
+        "username",
+        "type",
+        "isDefault",
+        "createdAt",
+        "updatedAt",
+      ];
       const include = null;
 
-      const { data } = await paginate(models.User, query, attributes, include, { page, pageSize });
+      const { data } = await paginate(models.User, query, attributes, include, {
+        page,
+        pageSize,
+      });
 
       return {
         data,
@@ -48,13 +58,9 @@ export default (sequelize) => {
         type: DataTypes.CHAR(128),
         allowNull: true,
       },
-      type: {
+      role: {
         type: DataTypes.TINYINT(1),
-        defaultValue: USER_TYPE.NORMAL,
-      },
-      isDefault: {
-        type: DataTypes.BOOLEAN,
-        field: "is_default",
+        defaultValue: USER_TYPE.MECHANICAL,
       },
       createdAt: {
         type: DataTypes.DATE,
@@ -74,14 +80,6 @@ export default (sequelize) => {
       tableName: "tbl_user",
       timestamps: true,
       paranoid: true,
-      indexes: [
-        {
-          name: "PRIMARY",
-          unique: true,
-          using: "BTREE",
-          fields: [{ name: "id" }],
-        },
-      ],
     }
   );
 

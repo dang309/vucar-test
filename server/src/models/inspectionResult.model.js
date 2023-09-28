@@ -1,30 +1,45 @@
 import { DataTypes, Model, UUIDV4 } from "sequelize";
+import fsExtra from "fs-extra";
 import { paginate } from "./helpers/paginate.js";
 
 export default (sequelize) => {
-  class Person extends Model {
+  class InspectionResult extends Model {
     static async paginate(query, { page, pageSize }) {
       const { models } = sequelize;
 
       const attributes = [
         "id",
-        "systemId",
-        "name",
-        "isDefault",
+        "userId",
+        "carId",
+        "criteriaId",
+        "isGood",
+        "note",
         "createdAt",
-        "updatedAt",
       ];
-      const include = {
-        model: models.System,
-        as: "system",
-      };
+      const include = [
+        {
+          model: models.User,
+          as: "user",
+        },
+        {
+          model: models.Car,
+          as: "car",
+        },
+        {
+          model: models.InspectionCriterion,
+          as: "inspectionCriterion",
+        },
+      ];
 
       const { data } = await paginate(
-        models.Person,
+        models.InspectionResult,
         query,
         attributes,
         include,
-        { page, pageSize }
+        {
+          page,
+          pageSize,
+        }
       );
 
       return {
@@ -33,7 +48,7 @@ export default (sequelize) => {
     }
   }
 
-  Person.init(
+  InspectionResult.init(
     {
       id: {
         type: DataTypes.STRING,
@@ -41,41 +56,41 @@ export default (sequelize) => {
         primaryKey: true,
         defaultValue: UUIDV4(),
       },
-      systemId: {
-        type: DataTypes.STRING,
+      userId: {
+        type: DataTypes.NUMBER,
         allowNull: true,
-        field: "system_id",
+        field: "user_id",
         references: {
-          model: "tbl_system",
+          model: "tbl_user",
           key: "id",
         },
       },
-      name: {
-        type: DataTypes.STRING(255),
+      carId: {
+        type: DataTypes.NUMBER,
         allowNull: true,
+        field: "car_id",
+        references: {
+          model: "tbl_car",
+          key: "id",
+        },
       },
-      isDefault: {
+      personId: {
+        type: DataTypes.NUMBER,
+        allowNull: true,
+        field: "creteria_id",
+        references: {
+          model: "tbl_inspection_criterion",
+          key: "id",
+        },
+      },
+      isGood: {
         type: DataTypes.BOOLEAN,
-        field: "is_default",
+        field: "is_good",
         defaultValue: false,
       },
-      createdBy: {
-        type: DataTypes.BIGINT(255),
+      note: {
+        type: DataTypes.STRING,
         allowNull: true,
-        field: "created_by",
-        references: {
-          model: "tbl_user",
-          key: "id",
-        },
-      },
-      updatedBy: {
-        type: DataTypes.BIGINT(255),
-        allowNull: true,
-        field: "updated_by",
-        references: {
-          model: "tbl_user",
-          key: "id",
-        },
       },
       createdAt: {
         type: DataTypes.DATE,
@@ -92,19 +107,11 @@ export default (sequelize) => {
     },
     {
       sequelize,
-      tableName: "tbl_person",
+      tableName: "tbl_inspection_result",
       timestamps: true,
       paranoid: true,
-      indexes: [
-        {
-          name: "PRIMARY",
-          unique: true,
-          using: "BTREE",
-          fields: [{ name: "id" }],
-        },
-      ],
     }
   );
 
-  return Person;
+  return InspectionResult;
 };
