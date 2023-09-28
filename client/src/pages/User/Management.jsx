@@ -1,14 +1,29 @@
+import { Link as RouterLink } from "react-router-dom";
+import { LoadingButton } from "@mui/lab";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Container,
+  Grid,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { red, yellow } from "@mui/material/colors";
 import { createColumnHelper } from "@tanstack/react-table";
 import { useSWRConfig } from "swr";
 
 import { UserAPI } from "src/api";
-import { useAuth, useData, useEventBus, useLocales } from "src/hooks";
-import BaseManagementPage from "src/pages/@base/BaseManagementPage";
+import HeaderBreadcrumbs from "src/components/HeaderBreadcrumbs";
+import Iconify from "src/components/Iconify";
+import Page from "src/components/Page";
+import { useAuth, useEventBus, useLocales } from "src/hooks";
 import { PATH_DASHBOARD } from "src/routes/paths";
+import { INPUT_TYPE } from "src/utils/constant";
 
 import { TableAction } from "../@base/components";
-import { INPUT_TYPE } from "src/utils/constant";
 
 const apiData = "/users";
 
@@ -100,8 +115,8 @@ const Management = () => {
 
   const breadcrumbs = [
     {
-      name: t("BREADCRUMB.USER"),
-      href: PATH_DASHBOARD.user.management,
+      name: "Cars",
+      href: PATH_DASHBOARD.car.management,
     },
   ];
 
@@ -118,17 +133,79 @@ const Management = () => {
   ];
 
   return (
-    <BaseManagementPage
-      apiData={apiData}
-      pageTitle={t("HEADING.USER_MANAGEMENT")}
-      heading={t("HEADING.USER_MANAGEMENT")}
-      breadcrumbs={breadcrumbs}
-      showSearch={true}
-      columns={columns}
-      filters={filters}
-      headingBtns={headingBtns}
-      handleDeleteOne={handleDeleteOne}
-    />
+    <Page title="Car Management">
+      <Container maxWidth={false}>
+        <HeaderBreadcrumbs
+          heading="Car Management"
+          links={
+            breadcrumbs || [
+              {
+                name: "Cars",
+                href: PATH_DASHBOARD.car.management,
+              },
+            ]
+          }
+          action={
+            <Stack direction="row" alignItems="center" spacing={1}>
+              {headingBtns &&
+                headingBtns.map((btn, index) => {
+                  if (btn.type === "action")
+                    return (
+                      <LoadingButton
+                        key={index}
+                        loading={btn.isLoading}
+                        variant="contained"
+                        startIcon={<Iconify icon={btn.icon} />}
+                        color={btn.color}
+                        onClick={btn.handler}
+                      >
+                        {btn.name}
+                      </LoadingButton>
+                    );
+                  return (
+                    <Button
+                      key={index}
+                      variant="contained"
+                      component={RouterLink}
+                      to={btn.href}
+                      startIcon={<Iconify icon={btn.icon} />}
+                      color={btn.color}
+                    >
+                      {btn.name}
+                    </Button>
+                  );
+                })}
+            </Stack>
+          }
+        />
+
+        <Grid container>
+          <Grid item>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="140"
+                image="/static/images/cards/contemplative-reptile.jpg"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Lizard
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Lizards are a widespread group of squamate reptiles, with over
+                  6,000 species, ranging across all continents except Antarctica
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Share</Button>
+                <Button size="small">Learn More</Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
+    </Page>
   );
 };
 

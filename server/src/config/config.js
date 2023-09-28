@@ -7,16 +7,6 @@ export default {
   port: process.env.PORT || 5000,
   webRoot: process.env.WEB_ROOT_URL,
   apiRoot: process.env.API_ROOT_URL,
-  sfaceAI: process.env.SFACE_AI_ENGINE_API_ROOT,
-  paths: {
-    public: "/public",
-    tmp: "/tmp",
-    storage: "/storage/",
-    snapshot: "/snapshot",
-    avatar: "/public/avatar",
-    docs: "/docs",
-    jobs: "/app/jobs",
-  },
   sequelize: {
     dbName: process.env.DB_NAME,
     dbHost: process.env.DB_HOST,

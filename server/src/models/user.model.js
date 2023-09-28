@@ -46,7 +46,7 @@ export default (sequelize) => {
     {
       id: {
         autoIncrement: true,
-        type: DataTypes.BIGINT(255),
+        type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
       },
@@ -59,7 +59,7 @@ export default (sequelize) => {
         allowNull: true,
       },
       role: {
-        type: DataTypes.TINYINT(1),
+        type: DataTypes.TINYINT(255),
         defaultValue: USER_TYPE.MECHANICAL,
       },
       createdAt: {

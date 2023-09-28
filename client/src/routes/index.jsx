@@ -36,67 +36,14 @@ const Loadable = (Component) => (props) => {
   );
 };
 
-// sface-data
-const SFaceDataPersonManagement = Loadable(
-  lazy(() => import("src/pages/SFaceData/Person/Management"))
-);
-const SFaceDataPersonForm = Loadable(
-  lazy(() => import("src/pages/SFaceData/Person/Form"))
-);
-
-const SFaceDataModelManagement = Loadable(
-  lazy(() => import("src/pages/SFaceData/Model/Management"))
-);
-const SFaceDataModelForm = Loadable(
-  lazy(() => import("src/pages/SFaceData/Model/Form"))
-);
-
-const SFaceDataFaceManagement = Loadable(
-  lazy(() => import("src/pages/SFaceData/Face/Management"))
-);
-const SFaceDataFaceForm = Loadable(
-  lazy(() => import("src/pages/SFaceData/Face/Form"))
-);
-
-const SFaceDataTaskManagement = Loadable(
-  lazy(() => import("src/pages/SFaceData/Task/Management"))
-);
-
 // user
 const UserManagement = Loadable(
   lazy(() => import("src/pages/User/Management"))
 );
 const UserForm = Loadable(lazy(() => import("src/pages/User/Form")));
 
-// system
-const SystemManagement = Loadable(
-  lazy(() => import("src/pages/System/Management"))
-);
-const SystemForm = Loadable(lazy(() => import("src/pages/System/Form")));
-
-// asset
-const AssetManagement = Loadable(
-  lazy(() => import("src/pages/Asset/Management"))
-);
-
 //
 const Dashboard = Loadable(lazy(() => import("src/pages/Dashboard")));
-
-// web-master
-const WebMasterSettingManagement = Loadable(
-  lazy(() => import("src/pages/WebMaster/Setting/Managament"))
-);
-const WebMasterSettingForm = Loadable(
-  lazy(() => import("src/pages/WebMaster/Setting/Form"))
-);
-
-const WebMasterBackupManagement = Loadable(
-  lazy(() => import("src/pages/WebMaster/Backup/Management"))
-);
-
-const WebMasterServerStatusManagement = Loadable(
-  lazy(() => import("src/pages/WebMaster/ServerStatus/Management"))
-);
 
 // auth
 const SignIn = Loadable(lazy(() => import("src/pages/Auth/SignIn")));
@@ -119,94 +66,16 @@ const Router = () => {
         { element: <Navigate to="/admin/dashboard" />, index: true },
         { path: "dashboard", element: <Dashboard /> },
         {
-          path: "users",
+          path: "cars",
           element: <UserManagement />,
         },
         {
-          path: "users/create",
+          path: "cars/create",
           element: <UserForm />,
         },
         {
-          path: "users/edit/:id",
+          path: "cars/edit/:id",
           element: <UserForm />,
-        },
-
-        {
-          path: "system",
-          element: <SystemManagement />,
-        },
-        {
-          path: "system/create",
-          element: <SystemForm />,
-        },
-        {
-          path: "system/edit/:id",
-          element: <SystemForm />,
-        },
-
-        {
-          path: "assets",
-          element: <AssetManagement />,
-        },
-
-        {
-          path: "sface-data/models",
-          element: <SFaceDataModelManagement />,
-        },
-
-        {
-          path: "sface-data/models/edit/:id",
-          element: <SFaceDataModelForm />,
-        },
-
-        {
-          path: "sface-data/people",
-          element: <SFaceDataPersonManagement />,
-        },
-        {
-          path: "sface-data/people/create",
-          element: <SFaceDataPersonForm />,
-        },
-        {
-          element: <SFaceDataPersonForm />,
-          path: "sface-data/people/edit/:id",
-        },
-
-        {
-          path: "sface-data/tasks",
-          element: <SFaceDataTaskManagement />,
-        },
-
-        {
-          path: "sface-data/faces",
-          element: <SFaceDataFaceManagement />,
-        },
-        {
-          path: "sface-data/faces/create",
-          element: <SFaceDataFaceForm />,
-        },
-        {
-          path: "sface-data/faces/edit/:id",
-          element: <SFaceDataFaceForm />,
-        },
-
-        {
-          path: "web-master/settings",
-          element: <WebMasterSettingManagement />,
-        },
-        {
-          path: "web-master/settings/edit/:id",
-          element: <WebMasterSettingForm />,
-        },
-
-        {
-          path: "web-master/backup",
-          element: <WebMasterBackupManagement />,
-        },
-
-        {
-          path: "web-master/server-status",
-          element: <WebMasterServerStatusManagement />,
         },
       ],
     },

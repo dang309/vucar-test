@@ -1,6 +1,6 @@
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import config from "./config.js";
-import { System, User } from "../models/index.js";
+import { User } from "../models/index.js";
 
 const jwtOptions = {
   secretOrKey: config.jwt.secret,
@@ -10,12 +10,11 @@ const jwtOptions = {
 const jwtVerify = async (payload, done) => {
   try {
     const user = await User.findByPk(payload.sub);
-    const system = await System.findByPk(payload.systemId);
 
-    if (!user || !system) {
+    if (!user) {
       return done(null, false);
     }
-    done(null, { user, system });
+    done(null, { user });
   } catch (error) {
     done(error, false);
   }

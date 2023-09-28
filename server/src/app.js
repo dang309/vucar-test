@@ -39,9 +39,6 @@ app.use(
   })
 );
 
-// static folder
-app.use(express.static(`${process.cwd()}/storage`));
-
 // parse json request body
 app.use(express.json());
 

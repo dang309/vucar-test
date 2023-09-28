@@ -1,9 +1,8 @@
 import { DataTypes, Model, UUIDV4 } from "sequelize";
-import fsExtra from "fs-extra";
 import { paginate } from "./helpers/paginate.js";
 
 export default (sequelize) => {
-  class InspectionResult extends Model {
+  class Result extends Model {
     static async paginate(query, { page, pageSize }) {
       const { models } = sequelize;
 
@@ -11,7 +10,7 @@ export default (sequelize) => {
         "id",
         "userId",
         "carId",
-        "criteriaId",
+        "criterionId",
         "isGood",
         "note",
         "createdAt",
@@ -26,13 +25,13 @@ export default (sequelize) => {
           as: "car",
         },
         {
-          model: models.InspectionCriterion,
-          as: "inspectionCriterion",
+          model: models.Criterion,
+          as: "criterion",
         },
       ];
 
       const { data } = await paginate(
-        models.InspectionResult,
+        models.Result,
         query,
         attributes,
         include,
@@ -48,17 +47,16 @@ export default (sequelize) => {
     }
   }
 
-  InspectionResult.init(
+  Result.init(
     {
       id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        defaultValue: UUIDV4(),
+        autoIncrement: true,
       },
       userId: {
-        type: DataTypes.NUMBER,
-        allowNull: true,
+        type: DataTypes.INTEGER,
         field: "user_id",
         references: {
           model: "tbl_user",
@@ -66,20 +64,19 @@ export default (sequelize) => {
         },
       },
       carId: {
-        type: DataTypes.NUMBER,
-        allowNull: true,
+        type: DataTypes.INTEGER,
         field: "car_id",
         references: {
           model: "tbl_car",
           key: "id",
         },
       },
-      personId: {
-        type: DataTypes.NUMBER,
+      criterionId: {
+        type: DataTypes.INTEGER,
         allowNull: true,
-        field: "creteria_id",
+        field: "criterion_id",
         references: {
-          model: "tbl_inspection_criterion",
+          model: "tbl_criterion",
           key: "id",
         },
       },
@@ -89,7 +86,7 @@ export default (sequelize) => {
         defaultValue: false,
       },
       note: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(255),
         allowNull: true,
       },
       createdAt: {
@@ -107,11 +104,11 @@ export default (sequelize) => {
     },
     {
       sequelize,
-      tableName: "tbl_inspection_result",
+      tableName: "tbl_result",
       timestamps: true,
       paranoid: true,
     }
   );
 
-  return InspectionResult;
+  return Result;
 };

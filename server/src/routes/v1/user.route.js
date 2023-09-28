@@ -2,7 +2,6 @@ import { UserController } from "../../controllers/index.js";
 import auth from "../../middlewares/auth.middleware.js";
 import isSuperAdmin from "../../middlewares/isSuperAdmin.middleware.js";
 import validate from "../../middlewares/validate.middleware.js";
-import USER_VALIDATION from "../../validations/user.validation.js";
 
 const controller = new UserController();
 
@@ -17,7 +16,7 @@ export default [
     path: "/",
     method: "post",
     handler: controller.create,
-    middlewares: [auth, isSuperAdmin, validate(USER_VALIDATION.create)],
+    middlewares: [auth, isSuperAdmin],
   },
   {
     path: "/me",
@@ -35,14 +34,14 @@ export default [
     path: "/:id",
     method: "patch",
     handler: controller.update,
-    middlewares: [auth, isSuperAdmin, validate(USER_VALIDATION.update)],
+    middlewares: [auth, isSuperAdmin],
   },
 
   {
     path: "/:id",
     method: "delete",
     handler: controller.delete,
-    middlewares: [auth, isSuperAdmin, validate(USER_VALIDATION.delete)],
+    middlewares: [auth, isSuperAdmin],
   },
 
   {

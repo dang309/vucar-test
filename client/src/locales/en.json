@@ -159,6 +159,7 @@
     "NAV": {
       "ASSET": "Asset",
       "BACKUP": "Backup",
+      "CAR": "Car",
       "DASHBOARD": "Dashboard",
       "FACE": "Face",
       "MODEL": "Model",

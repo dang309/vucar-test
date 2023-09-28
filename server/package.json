@@ -11,9 +11,7 @@
   "scripts": {
     "pro": "pm2 start process.json --env production",
     "dev": "pm2-dev process.json --env development",
-    "local": "pm2-dev process.json --env local",
-    "log": "pm2 log sface-engine",
-    "doc": "apidoc -i ./documentation/v1 -f Auth.js -o ./public/v1/docs",
+    "log": "pm2 log server",
     "test": "jest -i --colors --verbose --detectOpenHandles",
     "test:watch": "jest -i --watchAll",
     "coverage": "jest -i --coverage",

@@ -1,23 +1,23 @@
-import { DataTypes, Model, UUIDV4 } from "sequelize";
+import { DataTypes, Model } from "sequelize";
 import { paginate } from "./helpers/paginate.js";
 
 export default (sequelize) => {
-  class InspectionCriterion extends Model {
+  class Criterion extends Model {
     static async paginate(query, { page, pageSize }) {
       const { models } = sequelize;
 
-      const attributes = [
-        "id",
-        "criteriaName",
-        "criteriaLevel",
-        "createdAt",
-        "updatedAt",
-      ];
+      const attributes = ["id", "name", "parent", "createdAt", "updatedAt"];
 
-      const { data } = await paginate(models.Asset, query, attributes, null, {
-        page,
-        pageSize,
-      });
+      const { data } = await paginate(
+        models.Criterion,
+        query,
+        attributes,
+        null,
+        {
+          page,
+          pageSize,
+        }
+      );
 
       return {
         data,
@@ -25,23 +25,25 @@ export default (sequelize) => {
     }
   }
 
-  InspectionCriterion.init(
+  Criterion.init(
     {
       id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        defaultValue: UUIDV4(),
+        autoIncrement: true,
       },
-      criteriaName: {
-        type: DataTypes.STRING,
+      name: {
+        type: DataTypes.STRING(255),
         allowNull: true,
-        field: "criteria_name",
       },
-      criteriaLevel: {
-        type: DataTypes.STRING,
+      parent: {
+        type: DataTypes.INTEGER,
         allowNull: true,
-        field: "criteria_level",
+        references: {
+          model: "tbl_criterion",
+          key: "id",
+        },
       },
       createdAt: {
         type: DataTypes.DATE,
@@ -58,11 +60,11 @@ export default (sequelize) => {
     },
     {
       sequelize,
-      tableName: "tbl_inspection_criterion",
+      tableName: "tbl_criterion",
       timestamps: true,
       paranoid: true,
     }
   );
 
-  return InspectionCriterion;
+  return Criterion;
 };

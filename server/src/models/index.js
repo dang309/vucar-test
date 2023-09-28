@@ -3,8 +3,8 @@ import config from "../config/config.js";
 
 import _tblUser from "./user.model.js";
 import _tblCar from "./car.model.js";
-import _tblInspectionCriterion from "./inspectionCreterion.model.js";
-import _tblInspectionResult from "./inspectionResult.model.js";
+import _tblCriterion from "./creterion.model.js";
+import _tblResult from "./result.model.js";
 
 const sequelize = new Sequelize(
   config.sequelize.dbName,
@@ -20,29 +20,30 @@ const sequelize = new Sequelize(
 
 const User = _tblUser(sequelize);
 const Car = _tblCar(sequelize);
-const InspectionCriterion = _tblInspectionCriterion(sequelize);
-const InspectionResult = _tblInspectionResult(sequelize);
+const Criterion = _tblCriterion(sequelize);
+const Result = _tblResult(sequelize);
 
-InspectionResult.belongsTo(User, {
+Result.belongsTo(User, {
   as: "user",
   foreignKey: "user_id",
 });
-User.hasMany(InspectionResult, { as: "users", foreignKey: "user_id" });
+User.hasMany(Result, { as: "users", foreignKey: "user_id" });
 
-InspectionResult.belongsTo(Car, {
+Result.belongsTo(Car, {
   as: "car",
   foreignKey: "car_id",
 });
-Car.hasMany(InspectionResult, { as: "cars", foreignKey: "car_id" });
+Car.hasMany(Result, { as: "cars", foreignKey: "car_id" });
 
-InspectionResult.belongsTo(InspectionCriterion, {
+Result.belongsTo(Criterion, {
   as: "criterion",
-  foreignKey: "criteria_id",
+  foreignKey: "criterion_id",
 });
-InspectionCriterion.hasMany(InspectionResult, {
+Criterion.hasMany(Result, {
   as: "criterion",
-  foreignKey: "criteria_id",
+  foreignKey: "criterion_id",
 });
 
-export { User, InspectionCriterion, Car, InspectionResult };
+export { User, Criterion, Car, Result };
+
 export default sequelize;

@@ -6,7 +6,14 @@ export default (sequelize) => {
     static async paginate(query, { page, pageSize }) {
       const { models } = sequelize;
 
-      const attributes = ["id", "model", "car_name", "createdAt", "updatedAt"];
+      const attributes = [
+        "id",
+        "model",
+        "car_name",
+        "thumbnail",
+        "createdAt",
+        "updatedAt",
+      ];
 
       const { data } = await paginate(models.Car, query, attributes, null, {
         page,
@@ -23,19 +30,21 @@ export default (sequelize) => {
     {
       id: {
         autoIncrement: true,
-        type: DataTypes.BIGINT(255),
+        type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
       },
       model: {
         type: DataTypes.STRING,
         allowNull: true,
-        field: "system_id",
       },
       carName: {
         type: DataTypes.STRING,
         field: "car_name",
         allowNull: true,
+      },
+      thumbnail: {
+        type: DataTypes.STRING,
       },
       createdAt: {
         type: DataTypes.DATE,

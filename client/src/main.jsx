@@ -41,7 +41,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <LocalizationProvider dateAdapter={AdapterMoment}>
           <SettingsProvider>
             <CollapseDrawerProvider>
-              <BrowserRouter basename="/sface">
+              <BrowserRouter>
                 <SocketIOProvider>
                   <AuthProvider>
                     <App />
