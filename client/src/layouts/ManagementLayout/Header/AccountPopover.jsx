@@ -91,13 +91,13 @@ const AccountPopover = () => {
             {user?.username}
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
-            {USER_TYPE[user?.type]}
+            {USER_TYPE[user?.role]}
           </Typography>
         </Box>
 
         <Divider sx={{ borderStyle: "dashed" }} />
 
-        <MenuItem onClick={handleOpenProfile} sx={{ m: 1, p: 1 }}>
+        {/* <MenuItem onClick={handleOpenProfile} sx={{ m: 1, p: 1 }}>
           <Box
             component={Iconify}
             icon="eva:person-outline"
@@ -117,7 +117,7 @@ const AccountPopover = () => {
             sx={{ mr: 1, width: 24, height: 24 }}
           />
           {t("BUTTON.CHANGE_PASSWORD")}
-        </MenuItem>
+        </MenuItem> */}
 
         <MenuItem onClick={handleSignOut} sx={{ m: 1, p: 1, color: "red" }}>
           <Box

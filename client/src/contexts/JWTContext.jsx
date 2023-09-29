@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import PropTypes from "prop-types";
 
 import { AuthAPI, UserAPI } from "src/api";
-import { SFACE_JWT_COOKIE } from "src/utils/constant";
+import { JWT_COOKIE } from "src/utils/constant";
 import { isValidToken, setSession } from "src/utils/jwt";
 
 // ----------------------------------------------------------------------
@@ -67,7 +67,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const initialize = async () => {
       try {
-        const jwt = Cookies.get(SFACE_JWT_COOKIE);
+        const jwt = Cookies.get(JWT_COOKIE);
 
         if (jwt && isValidToken(jwt)) {
           setSession(jwt);
@@ -129,7 +129,7 @@ const AuthProvider = ({ children }) => {
   const signOut = async () => {
     setSession(null);
     dispatch({ type: "LOGOUT" });
-    Cookies.remove(SFACE_JWT_COOKIE);
+    Cookies.remove(JWT_COOKIE);
   };
 
   const changePassword = () => {};

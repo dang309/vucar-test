@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 // material
 import { styled, useTheme } from "@mui/material/styles";
-import { enqueueSnackbar } from "notistack";
 import { SWRConfig } from "swr";
 
 import ChangePasswordDialog from "src/components/dialogs/ChangePasswordDialog";
 import ConfirmationDialog from "src/components/dialogs/ConfirmationDialog";
 import ProfileDialog from "src/components/dialogs/ProfileDialog";
-import { useLocales, useSocketIO } from "src/hooks";
 // hooks
 import useCollapseDrawer from "src/hooks/useCollapseDrawer";
 
@@ -45,50 +42,8 @@ const MainStyle = styled("div")(({ theme }) => ({
 const ManagementLayout = () => {
   const theme = useTheme();
   const { collapseClick } = useCollapseDrawer();
-  const { socket } = useSocketIO();
-
-  const { t } = useLocales();
 
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    socket.on("sql-backup/done", () => {
-      enqueueSnackbar(t("NOTI.BACKUP_DONE"), {
-        anchorOrigin: {
-          vertical: "bottom",
-          horizontal: "left",
-        },
-        variant: "info",
-      });
-    });
-    socket.on("extract-face/done", () => {
-      enqueueSnackbar(t("NOTI.EXTRACT_DONE"), {
-        anchorOrigin: {
-          vertical: "bottom",
-          horizontal: "left",
-        },
-        variant: "info",
-      });
-    });
-    socket.on("extract-face/failed", () => {
-      enqueueSnackbar(t("NOTI.EXTRACT_FAIL"), {
-        anchorOrigin: {
-          vertical: "bottom",
-          horizontal: "left",
-        },
-        variant: "error",
-      });
-    });
-    socket.on("verify-face/done", () => {
-      enqueueSnackbar(t("NOTI.VERIFY_DONE"), {
-        anchorOrigin: {
-          vertical: "bottom",
-          horizontal: "left",
-        },
-        variant: "info",
-      });
-    });
-  }, [socket, t]);
 
   return (
     <SWRConfig>

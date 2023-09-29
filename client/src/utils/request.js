@@ -4,9 +4,7 @@ import { enqueueSnackbar } from "notistack";
 
 import i18n from "src/locales/i18n";
 
-import {
-  SFACE_JWT_COOKIE,
-} from "./constant";
+import { JWT_COOKIE } from "./constant";
 
 const request = axios.create({
   baseURL: `${import.meta.env.VITE_API_ROOT}/v1`,
@@ -30,10 +28,10 @@ const onRequest = (config) => {
       "Content-Type": "multipart/form-data",
     };
   }
-  if (Cookies.get(SFACE_JWT_COOKIE)) {
+  if (Cookies.get(JWT_COOKIE)) {
     config.headers = {
       ...config.headers,
-      Authorization: `Bearer ${Cookies.get(SFACE_JWT_COOKIE)}`,
+      Authorization: `Bearer ${Cookies.get(JWT_COOKIE)}`,
     };
   }
   return config;
@@ -46,14 +44,14 @@ const onRequestError = (error) => {
 const onResponse = (response) => {
   if (response.config.method === "get") return response;
   if (response.status === 200 || response.status === 201) {
-    enqueueSnackbar(i18n.t('NOTI.SUCCESS'), { variant: "success" });
+    // enqueueSnackbar(i18n.t('NOTI.SUCCESS'), { variant: "success" });
   }
   return response;
 };
 
 const onResponseError = (error) => {
   enqueueSnackbar(
-    error?.response?.data?.error?.message || i18n.t('NOTI.FAILED'),
+    error?.response?.data?.error?.message || i18n.t("NOTI.FAILED"),
     {
       variant: "error",
     }

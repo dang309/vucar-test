@@ -10,7 +10,7 @@ import workerReducer from "./slices/worker";
 const rootPersistConfig = {
   key: "root",
   storage,
-  keyPrefix: "__SFACE_ENGINE__",
+  keyPrefix: "DANG",
   whitelist: ["worker"],
 };
 

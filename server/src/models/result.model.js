@@ -8,11 +8,12 @@ export default (sequelize) => {
 
       const attributes = [
         "id",
-        "userId",
         "carId",
         "criterionId",
         "isGood",
         "note",
+        "createdBy",
+        "updatedBy",
         "createdAt",
       ];
       const include = [
@@ -88,6 +89,24 @@ export default (sequelize) => {
       note: {
         type: DataTypes.STRING(255),
         allowNull: true,
+      },
+      createdBy: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        field: "created_by",
+        references: {
+          model: "tbl_user",
+          key: "id",
+        },
+      },
+      updatedBy: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        field: "updated_by",
+        references: {
+          model: "tbl_user",
+          key: "id",
+        },
       },
       createdAt: {
         type: DataTypes.DATE,

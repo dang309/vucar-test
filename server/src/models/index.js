@@ -3,7 +3,7 @@ import config from "../config/config.js";
 
 import _tblUser from "./user.model.js";
 import _tblCar from "./car.model.js";
-import _tblCriterion from "./creterion.model.js";
+import _tblCriterion from "./criterion.model.js";
 import _tblResult from "./result.model.js";
 
 const sequelize = new Sequelize(
@@ -40,7 +40,7 @@ Result.belongsTo(Criterion, {
   foreignKey: "criterion_id",
 });
 Criterion.hasMany(Result, {
-  as: "criterion",
+  as: "result",
   foreignKey: "criterion_id",
 });
 

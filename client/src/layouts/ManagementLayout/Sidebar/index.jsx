@@ -7,12 +7,10 @@ import PropTypes from "prop-types";
 
 import { MHidden } from "src/components/@material-extend";
 // components
-import Logo from "src/components/Logo";
+// import Logo from "src/components/Logo";
 import NavSection from "src/components/NavSection";
 import Scrollbar from "src/components/Scrollbar";
-import { useLocales } from "src/hooks";
 // hooks
-import useAuth from "src/hooks/useAuth";
 import useCollapseDrawer from "src/hooks/useCollapseDrawer";
 
 //
@@ -124,7 +122,8 @@ const Sidebar = ({ isOpenSidebar, onCloseSidebar }) => {
           justifyContent="space-between"
         >
           <Box component={RouterLink} to="/" sx={{ display: "inline-flex" }}>
-            <Logo />
+            {/* <Logo /> */}
+            LOGO
           </Box>
 
           <MHidden width="lgDown">

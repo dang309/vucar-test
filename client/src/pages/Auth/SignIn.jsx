@@ -56,14 +56,14 @@ const LoginPage = () => {
           <Stack direction="row" alignItems="center" sx={{ mb: 5 }}>
             <Box sx={{ flexGrow: 1 }}>
               <Typography variant="h4" gutterBottom>
-                S3 LAB
+                LOGO
               </Typography>
               <Typography sx={{ color: "text.secondary" }}>
                 Enter your details below.
               </Typography>
             </Box>
 
-            <Logo sx={{ width: 64, height: 64 }} />
+            {/* <Logo sx={{ width: 64, height: 64 }} /> */}
           </Stack>
 
           {method !== "auth0" ? (

@@ -27,7 +27,7 @@ class UserManager extends BaseManager {
 
   async findOne(id) {
     const data = await this.model.findByPk(id, {
-      attributes: ["id", "username", "type", "createdAt", "updatedAt"],
+      attributes: ["id", "username", "role", "createdAt", "updatedAt"],
     });
     return {
       data,
@@ -56,7 +56,7 @@ class UserManager extends BaseManager {
   async delete(id) {
     const data = await User.destroy({
       where: { id },
-      attributes: ["id", "username", "type", "createdAt", "updatedAt"],
+      attributes: ["id", "username", "role", "createdAt", "updatedAt"],
     });
     return {
       data,

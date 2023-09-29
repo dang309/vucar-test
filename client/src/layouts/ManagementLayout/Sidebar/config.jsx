@@ -5,24 +5,24 @@ import { PATH_DASHBOARD } from "src/routes/paths";
 const sidebarConfig = [
   // GENERAL
   // ----------------------------------------------------------------------
-  {
-    subheader: "SIDEBAR.GROUP.GENERAL",
-    items: [
-      {
-        title: "SIDEBAR.NAV.DASHBOARD",
-        path: PATH_DASHBOARD.dashboard,
-        icon: "eva:pie-chart-outline",
-      },
-    ],
-  },
+  // {
+  //   subheader: "SIDEBAR.GROUP.GENERAL",
+  //   items: [
+  //     {
+  //       title: "SIDEBAR.NAV.DASHBOARD",
+  //       path: PATH_DASHBOARD.dashboard,
+  //       icon: "eva:pie-chart-outline",
+  //     },
+  //   ],
+  // },
 
   // MANAGEMENT
   // ----------------------------------------------------------------------
   {
-    subheader: "SIDEBAR.GROUP.MANAGEMENT",
+    subheader: "Quản lý",
     items: [
       {
-        title: "SIDEBAR.NAV.CAR",
+        title: "Xe",
         path: PATH_DASHBOARD.car.management,
         icon: "lucide:car",
       },

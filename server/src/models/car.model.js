@@ -9,7 +9,7 @@ export default (sequelize) => {
       const attributes = [
         "id",
         "model",
-        "car_name",
+        "carName",
         "thumbnail",
         "createdAt",
         "updatedAt",

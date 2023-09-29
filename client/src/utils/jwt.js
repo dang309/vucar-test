@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';
 //
-import { SFACE_JWT_COOKIE } from './constant';
+import { JWT_COOKIE } from './constant';
 
 // ----------------------------------------------------------------------
 
@@ -18,9 +18,9 @@ const isValidToken = (token) => {
 
 const setSession = (token) => {
   if (token) {
-    Cookies.set(SFACE_JWT_COOKIE, token);
+    Cookies.set(JWT_COOKIE, token);
   } else {
-    Cookies.remove(SFACE_JWT_COOKIE);
+    Cookies.remove(JWT_COOKIE);
   }
 };
 

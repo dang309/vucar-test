@@ -17,14 +17,7 @@ export default (sequelize) => {
     static async paginate(query, { page, pageSize }) {
       const { models } = sequelize;
 
-      const attributes = [
-        "id",
-        "username",
-        "type",
-        "isDefault",
-        "createdAt",
-        "updatedAt",
-      ];
+      const attributes = ["id", "username", "role", "createdAt", "updatedAt"];
       const include = null;
 
       const { data } = await paginate(models.User, query, attributes, include, {
@@ -59,7 +52,7 @@ export default (sequelize) => {
         allowNull: true,
       },
       role: {
-        type: DataTypes.TINYINT(255),
+        type: DataTypes.TINYINT(1),
         defaultValue: USER_TYPE.MECHANICAL,
       },
       createdAt: {

@@ -23,7 +23,6 @@ import { CollapseDrawerProvider } from "./contexts/CollapseDrawerContext";
 import { AuthProvider } from "./contexts/JWTContext";
 // contexts
 import { SettingsProvider } from "./contexts/SettingsContext";
-import { SocketIOProvider } from "./contexts/SocketIOContext";
 // redux
 import { persistor, store } from "./redux/store";
 // Entry
@@ -42,11 +41,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <SettingsProvider>
             <CollapseDrawerProvider>
               <BrowserRouter>
-                <SocketIOProvider>
-                  <AuthProvider>
-                    <App />
-                  </AuthProvider>
-                </SocketIOProvider>
+                <AuthProvider>
+                  <App />
+                </AuthProvider>
               </BrowserRouter>
             </CollapseDrawerProvider>
           </SettingsProvider>

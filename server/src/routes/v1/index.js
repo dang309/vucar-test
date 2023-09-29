@@ -3,8 +3,8 @@ import express from "express";
 import authRoutes from "./auth.route.js";
 import userRoutes from "./user.route.js";
 import carRoutes from "./car.route.js";
-import inspectionResultRoutes from "./inspectionResult.route.js";
-import inspectionCriterionRoutes from "./inspectionCriterion.route.js";
+import resultRoutes from "./result.route.js";
+import criterionRoutes from "./criterion.route.js";
 
 import Utility from "../../utils/utils.js";
 
@@ -25,11 +25,11 @@ const routes = [
   },
   {
     path: "/inspection-result",
-    subRoutes: inspectionResultRoutes,
+    subRoutes: resultRoutes,
   },
   {
-    path: "/inspection-criterion",
-    subRoutes: inspectionCriterionRoutes,
+    path: "/criteria",
+    subRoutes: criterionRoutes,
   },
 ];
 

@@ -32,8 +32,6 @@ class BaseController {
       ? JSON.parse(decodeURI(req.query.filters))
       : null;
 
-    console.log({ filters });
-
     if (filters && filters.length > 0) {
       const createdAtFilter = filters.find(
         (filter) => filter.key === "createdAt"
@@ -56,6 +54,7 @@ class BaseController {
       _.parseInt(pageSize, 10),
       filters
     );
+
     return REST.getSuccess(res, result);
   }
 

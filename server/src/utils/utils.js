@@ -10,6 +10,42 @@ class Utility {
     };
   }
 
+  static groupByParent(arr) {
+    const result = [];
+    const genMenuData = (list, origin, level) => {
+      for (let i = 0; i < list.length; i += 1) {
+        const children = origin
+          .filter((x) => x.parent === list[i].id)
+          .map((o) => ({
+            ...o.toJSON(),
+            level,
+          }));
+        if (children.length > 0) {
+          list[i].children = children;
+          genMenuData(list[i].children, origin, level + 1);
+        } else if (list[i].children) {
+          delete list[i].children;
+        }
+      }
+    };
+
+    const folderRoot = arr
+      .filter((x) => x.parent === null)
+      .map((o) => ({
+        ...o.toJSON(),
+        level: 1,
+      }));
+    result.push(...folderRoot);
+    genMenuData(result, arr, 2);
+    return result;
+  }
+
+  findRootParent(arr, item) {
+    if (!item.parent) return item;
+    const obj = arr.find((o) => o.id === item.parent);
+    return this.findRootParent(obj);
+  }
+
   static generateHierarchyPathByTimestamp(prefix) {
     const utc = moment().utc();
     const year = utc.year();

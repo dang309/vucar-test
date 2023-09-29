@@ -20,7 +20,6 @@ export const PATH_PAGE = {
 
 export const PATH_DASHBOARD = {
   root: ROOT_ADMIN_PATH,
-  dashboard: path(ROOT_ADMIN_PATH, "/dashboard"),
   car: {
     management: path(ROOT_ADMIN_PATH, "/cars"),
     form: path(ROOT_ADMIN_PATH, "/cars/form"),

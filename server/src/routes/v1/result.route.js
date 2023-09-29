@@ -1,7 +1,9 @@
-import { InspectionCriterionController } from "../../controllers/index.js";
+import { ResultController } from "../../controllers/index.js";
 import auth from "../../middlewares/auth.middleware.js";
+import validate from "../../middlewares/validate.middleware.js";
+import { RESULT_VALIDATION } from "../../validations/index.js";
 
-const controller = new InspectionCriterionController();
+const controller = new ResultController();
 
 export default [
   {
@@ -26,13 +28,20 @@ export default [
     path: "/:id",
     method: "patch",
     handler: controller.update,
-    middlewares: [auth],
+    middlewares: [auth, validate(RESULT_VALIDATION.update)],
   },
 
   {
     path: "/:id",
     method: "delete",
     handler: controller.delete,
+    middlewares: [auth, validate(RESULT_VALIDATION.delete)],
+  },
+
+  {
+    path: "/",
+    method: "delete",
+    handler: controller.deleteMany,
     middlewares: [auth],
   },
 ];

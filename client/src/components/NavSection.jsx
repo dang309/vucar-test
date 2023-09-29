@@ -70,8 +70,6 @@ const NavItem = ({ item, active, isShow }) => {
   const theme = useTheme();
   const { t } = useLocales();
 
-  console.log(item.path);
-
   const isActiveRoot = active(item.path);
   const { title, path, icon, info, children } = item;
 

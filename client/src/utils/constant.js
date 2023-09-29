@@ -1,6 +1,6 @@
 export const PAGE_SIZE_OPTIONS = [5, 10, 25];
 export const DEFAULT_PAGE_SIZE = 25;
-export const SFACE_JWT_COOKIE = "__SFACE__JWT";
+export const JWT_COOKIE = "JWT";
 export const FAILED_RESPONSE_API = "Failed!";
 export const SUCCESSFUL_RESPONSE_API = "Successfully!";
 export const DATE_FORMAT = "MM-DD-YYYY";
@@ -31,10 +31,8 @@ export const GET_TYPE = {
   COUNT: "COUNT",
 };
 export const USER_TYPE = {
-  1: "ANONYMOUS",
-  2: "NORMAL",
-  3: "ADMIN",
-  4: "SUPER ADMIN",
+  1: "MECHANICAL",
+  2: "ADMIN",
 };
 export const STATUS_TYPE = {
   ERROR: "error",

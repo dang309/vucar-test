@@ -36,14 +36,9 @@ const Loadable = (Component) => (props) => {
   );
 };
 
-// user
-const UserManagement = Loadable(
-  lazy(() => import("src/pages/User/Management"))
-);
-const UserForm = Loadable(lazy(() => import("src/pages/User/Form")));
-
-//
-const Dashboard = Loadable(lazy(() => import("src/pages/Dashboard")));
+// car
+const CarManagement = Loadable(lazy(() => import("src/pages/Car/Management")));
+const CarInspection = Loadable(lazy(() => import("src/pages/Car/Inspection")));
 
 // auth
 const SignIn = Loadable(lazy(() => import("src/pages/Auth/SignIn")));
@@ -63,19 +58,14 @@ const Router = () => {
         </AuthGuard>
       ),
       children: [
-        { element: <Navigate to="/admin/dashboard" />, index: true },
-        { path: "dashboard", element: <Dashboard /> },
+        { element: <Navigate to="/admin/cars" />, index: true },
         {
           path: "cars",
-          element: <UserManagement />,
+          element: <CarManagement />,
         },
         {
-          path: "cars/create",
-          element: <UserForm />,
-        },
-        {
-          path: "cars/edit/:id",
-          element: <UserForm />,
+          path: "cars/inspect/:id",
+          element: <CarInspection />,
         },
       ],
     },
@@ -100,7 +90,7 @@ const Router = () => {
 
     {
       path: "/",
-      element: <Navigate to="/admin/dashboard" replace />,
+      element: <Navigate to="/admin/cars" replace />,
     },
 
     {

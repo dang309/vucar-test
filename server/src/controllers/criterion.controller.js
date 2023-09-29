@@ -1,10 +1,10 @@
-import { InspectionCriterionManager } from "../managers/index.js";
+import { CriterionManager } from "../managers/index.js";
 import BaseController from "./base.controller.js";
 
-class InspectionCriterionController extends BaseController {
+class CriterionController extends BaseController {
   constructor() {
-    super(new InspectionCriterionManager());
+    super(new CriterionManager());
   }
 }
 
-export default InspectionCriterionController;
+export default CriterionController;

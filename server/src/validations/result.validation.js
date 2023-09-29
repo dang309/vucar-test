@@ -1,13 +1,11 @@
 import Joi from "joi";
 
-const SYSTEM_VALIDATION = {
+const RESULT_VALIDATION = {
   create: {
-    body: Joi.object()
-      .keys({
-        isGood: Joi.bool().required(),
-        note: Joi.string(),
-      })
-      .unknown(true),
+    body: Joi.object().keys({
+      isGood: Joi.bool().required(),
+      note: Joi.string().allow(null),
+    }),
   },
   update: {
     params: Joi.object().keys({
@@ -15,7 +13,7 @@ const SYSTEM_VALIDATION = {
     }),
     body: Joi.object().keys({
       isGood: Joi.bool().default(false),
-      note: Joi.string(),
+      note: Joi.string().allow(null),
     }),
   },
   delete: {
@@ -25,4 +23,4 @@ const SYSTEM_VALIDATION = {
   },
 };
 
-export default SYSTEM_VALIDATION;
+export default RESULT_VALIDATION;

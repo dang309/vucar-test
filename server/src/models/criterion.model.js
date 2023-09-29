@@ -8,11 +8,19 @@ export default (sequelize) => {
 
       const attributes = ["id", "name", "parent", "createdAt", "updatedAt"];
 
+      const include = [
+        {
+          model: models.Result,
+          as: "result",
+          attributes: ["isGood", "note"],
+        },
+      ];
+
       const { data } = await paginate(
         models.Criterion,
         query,
         attributes,
-        null,
+        include,
         {
           page,
           pageSize,

@@ -1,10 +1,10 @@
-import { InspectionResultManager } from "../managers/index.js";
+import { ResultManager } from "../managers/index.js";
 import BaseController from "./base.controller.js";
 
-class InspectionResultController extends BaseController {
+class ResultController extends BaseController {
   constructor() {
-    super(new InspectionResultManager());
+    super(new ResultManager());
   }
 }
 
-export default InspectionResultController;
+export default ResultController;

@@ -1,13 +1,10 @@
 import request from "src/utils/request";
 
 class FaceAPI {
-  static endPoint = "/faces";
+  static endPoint = "/inspection-result";
 
   static async getOne(id) {
     return request.get(`${FaceAPI.endPoint}/${id}`);
-  }
-  static async getFacesOfAsset(id) {
-    return request.get(`${FaceAPI.endPoint}/get-asset?id=${id}`);
   }
 
   static async create(body) {
