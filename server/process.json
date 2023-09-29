@@ -24,27 +24,27 @@
         "DB_PORT": "",
         "DB_USER": "",
         "DB_PASSWORD": "",
-        "DB_NAME": "",
-        "DB_DIALECT": "",
-        "API_ROOT_URL": "",
-        "WEB_ROOT_URL": "",
-        "JWT_SECRET": "",
-        "JWT_EXPIRATION_HOURS": 128,
-      },
-      "env_development": {
-        "NODE_ENV": "development",
-        "PORT": 5000,
-        "DB_HOST": "127.0.0.1",
-        "DB_PORT": "3306",
-        "DB_USER": "root",
-        "DB_PASSWORD": "192837",
         "DB_NAME": "vucar",
         "DB_DIALECT": "mysql",
         "API_ROOT_URL": "http://localhost:5000",
         "WEB_ROOT_URL": "http://localhost:5173",
         "JWT_SECRET": "super-secret",
-        "JWT_EXPIRATION_HOURS": 128,
+        "JWT_EXPIRATION_HOURS": 128
       },
+      "env_development": {
+        "NODE_ENV": "development",
+        "PORT": 5000,
+        "DB_HOST": "",
+        "DB_PORT": "",
+        "DB_USER": "",
+        "DB_PASSWORD": "",
+        "DB_NAME": "vucar",
+        "DB_DIALECT": "mysql",
+        "API_ROOT_URL": "http://localhost:5000",
+        "WEB_ROOT_URL": "http://localhost:5173",
+        "JWT_SECRET": "super-secret",
+        "JWT_EXPIRATION_HOURS": 128
+      }
     }
   ]
 }
